@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Aerial Imageing Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="ui-overlay">
+        <div class="panel">
+            <h1>Aerial Imageing Simulator</h1>
+            <div id="status">Status: Connecting to API...</div>
+
+            <div class="controls">
+                <select id="show-selector">
+                    <option value="">Select a Show</option>
+                </select>
+                <button id="btn-load">Load</button>
+            </div>
+
+            <div class="upload-controls" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #444;">
+                <input type="file" id="video-upload" accept="video/mp4,video/x-m4v,video/*"
+                    style="width: 100%; margin-bottom: 5px;">
+                <button id="btn-upload" style="width: 100%; background: #4a90e2;">Upload & Convert Video</button>
+            </div>
+
+            <div class="playback-controls">
+                <button id="btn-play">▶ Play</button>
+                <button id="btn-pause">⏸ Pause</button>
+                <button id="btn-reset">↺ Reset</button>
+            </div>
+
+            <div class="stats">
+                <div>Frame: <span id="lbl-frame">0</span> / <span id="lbl-total">0</span></div>
+                <div>Time: <span id="lbl-time">0.00</span>s</div>
+                <div>Drones: <span id="lbl-drones">0</span></div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <input type="range" id="timeline" min="0" max="100" value="0" step="1">
+        </div>
+    </div>
+
+    <!-- Three.js Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Three.js Libraries via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- App Logic -->
+    <script src="app.js?v=2"></script>
+</body>
+
+</html>
